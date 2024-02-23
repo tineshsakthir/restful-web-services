@@ -26,6 +26,29 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!--		With the below actuator , it provides number of end points to monitor and manage out spring application
+	It provides endPoints like
+		1. beans - completer list of Spring beans in out app
+		2. health
+		3. metrics
+		4. mappings - details around request mapping
+
+		to view those things
+		first set up a line in application.properties as " management.endpoints.web.exposure.include=* "
+		and go to /actuators in the endpoint in which the application is local hosted
+-->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-explorer</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -42,6 +65,44 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
+
+		<!--The below can cause some problems when we are dealing with some advanced features so i am temporarily commenting them out-->
+<!--&lt;!&ndash;     "Auto Api Doc  Below in added in 20-feb-2024 1.39 pm for Step 17 section 8
+ 					Open the url localhost:portNumber/swagger-ui.html to use the swagger
+ &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springdoc</groupId>-->
+<!--			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--			<version>2.3.0</version>-->
+<!--		</dependency>-->
+
+<!--&lt;!&ndash;	"Content Negotiation"	TO provide the content to in different formats(here xml) we should add their -->
+<!--			converting jar dependencies in the pom.xml-->
+<!--            By default the bean is just converted into json jackson json conversion autoconfiguration-->
+<!--            with the help of the jar present inside the spring started web-->
+<!--            here i am jackson xml converter jar dependencies
+				Here the user will send his desired request language type in the header named("Accept")
+
+-->
+<!--            &ndash;&gt;-->
+
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+<!--			<artifactId>jackson-dataformat-xml</artifactId>-->
+<!--		</dependency>-->
+
+
+
+
 	</dependencies>
 
 	<build>
